@@ -21,7 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'valid',       // nel ajout
+        'role',         // nel ajout
+        'valid',        // nel ajout
     ];
 
     /**
@@ -42,4 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function posts()  // nel ajout
+    {
+        return $this->hasMany(Post::class);
+    }
 }
